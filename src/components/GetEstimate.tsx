@@ -18,7 +18,6 @@ export const GetEstimate =()=>{
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>)=> {
     if(!form) return
     event.preventDefault();
-    console.log(import.meta.env.VITE_MY_PUBLIC_KEY)
     emailjs.sendForm(
       import.meta.env.VITE_SERVICE_ID,
       import.meta.env.VITE_TEMPLATE_ID,
