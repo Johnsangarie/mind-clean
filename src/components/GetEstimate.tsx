@@ -18,11 +18,12 @@ export const GetEstimate =()=>{
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>)=> {
     if(!form) return
     event.preventDefault();
+    
     emailjs.sendForm(
       import.meta.env.VITE_SERVICE_ID,
       import.meta.env.VITE_TEMPLATE_ID,
       form.current,{
-      publicKey:import.meta.env.VITE_MY_PUBLIC_KEY  }
+      publicKey:import.meta.env?.VITE_MY_PUBLIC_KEY}
     ).then(()=>{
         console.log("SUCCESS")
         setErrorMessage("")
