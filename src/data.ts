@@ -12,6 +12,6 @@ export const services = [
 
 export const testimonialsData = [
     { message: "Excellent service and great attention to detail.", author: "Jane Doe" },
-    { message: "Professional team and top-quality results!", author: "John Smith" },
+    { message: "Professional team and top-quality results!", author: "John Smitht" },
     { message: "Reliable, timely, and thorough cleaning every time.", author: "Emily Clark" },
   ];
