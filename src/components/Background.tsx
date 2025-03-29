@@ -33,7 +33,7 @@ export const Background=()=>{
           transform: 'translate(-50%, -50%)',
           textAlign: 'center',
           color: '#fff',
-          fontSize: '35px',
+          fontSize: '60px',
           fontWeight: 'bold',
           textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
         }}
