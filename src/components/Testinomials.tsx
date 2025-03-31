@@ -6,7 +6,7 @@ import { testimonialsData } from '../data';
 
 export function Testinomials() {
   return (
-    <div id='testinomials' className="container py-5">
+    <div  className="container py-5">
       <TestimonialCarousel testimonials={testimonialsData} />
     </div>
   );

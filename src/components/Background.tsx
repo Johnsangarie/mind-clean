@@ -38,9 +38,13 @@ export const Background=()=>{
           textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
         }}
       >
-        <h3>Transforming Spaces, One Sparkle at a Time</h3>
-        <h2>– Because Every Detail Matters</h2>
-        <Button>Get Estimate</Button>
+
+
+
+
+        <h5>Reliable and eco-friendly cleaning services.</h5>
+        <h1>A cleaner, brighter workspace.</h1>
+        <Button href="#get-estimate">Get Estimate</Button>
       </div>
     </div>
         
