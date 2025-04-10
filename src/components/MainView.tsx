@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaPhoneAlt, FaRegClock } from 'react-icons/fa';
 import { Navbarr } from './NavBar';
@@ -8,10 +8,19 @@ import {Testinomials} from './Testinomials';
 import { AboutUs } from './AboutUs';
 import {GetEstimate} from "./GetEstimate";
 import {Footer} from "./Footer";
+import { WorkingWithUs } from './WorkingWithUs';
+import { StepsToWork } from './StepsToWork';
 
 
 
 export function  MainView()  {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    checkMobile(); // Initial check
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
        return   <> 
        
      <div style={{ backgroundColor: '#2879ad', color: '#fff', fontSize: '0.9rem' }}>
@@ -35,12 +44,16 @@ export function  MainView()  {
      </div>
       <Navbarr/>
       <Background/>
-      <h3 id="service" style={{fontSize:"60px", textAlign:"center", margin:"30px 0px 30px 0px"}}> Our Services</h3>
+      <h3 id="service" style={{fontSize: isMobile ? "35px" : "60px", textAlign:"center", margin:"30px 0px 30px 0px"}}> Our Services</h3>
       <Service/>
-      <h3 id='testinomials' style={{fontSize:"60px", textAlign:"center", margin:"30px 0px 10px 0px"}}> World class Customer Service.</h3>
+      <h3 id='testinomials' style={{fontSize: isMobile ? "35px" : "60px", textAlign:"center", margin:"30px 0px 10px 0px"}}> World class Customer Service.</h3>
       <p style={{fontSize:"20px", textAlign:"center", margin:"5px 0px 30px 0px"}}> Don't just take our word for it, see what our customers are saying.</p>
       <Testinomials />
-      <h3 id="about" style={{fontSize:"60px", textAlign:"center", margin:"30px 0px 30px 0px"}}> About us</h3>
+      <h3 id="about" style={{fontSize: isMobile ? "35px" : "60px", textAlign:"center", margin:"30px 0px 30px 0px"}}>Our Worry Free Guarantee</h3>
+       <WorkingWithUs/>
+       <h3 id="about" style={{fontSize:isMobile ? "35px" : "60px", textAlign:"center", margin:"30px 0px 30px 0px"}}> Working With Us Is Easy</h3>
+       <StepsToWork/>
+      <h3 id="about" style={{fontSize: isMobile ? "35px" : "60px", textAlign:"center", margin:"30px 0px 30px 0px"}}> About us</h3>
       <AboutUs/>
       <GetEstimate />
       <Footer />

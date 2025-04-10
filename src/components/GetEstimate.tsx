@@ -1,4 +1,4 @@
- import React, { useRef, useState } from 'react';
+ import React, { useEffect, useRef, useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
  import emailjs from '@emailjs/browser';
@@ -6,6 +6,13 @@ import Form from 'react-bootstrap/Form';
 
 
 export const GetEstimate =()=>{
+   const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+      checkMobile(); // Initial check
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
  
   const form = useRef(null)
  
@@ -45,7 +52,7 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>)=> {
     return     <>
      <Container id='get-estimate' fluid="lg">
     <Row>
-      <Col sm="12"  md="6" className="mb-4 shadow-sm" style={{backgroundColor:"#2879ad"}}> <h3 style={{fontSize:"60px", textAlign:"center", margin:"30px 0px 30px 0px", color:"#fff"}}> Ready To Get an Estimate?</h3></Col>
+      <Col sm="12"  md="6" className="mb-4 shadow-sm" style={{backgroundColor:"#2879ad"}}> <h3 style={{fontSize: isMobile ? "35px" : "60px", textAlign:"center", margin:"30px 0px 30px 0px", color:"#fff"}}> Ready To Get an Estimate?</h3></Col>
 
       <Col sm="12"   md="6"  className="mb-4" > 
     <Form className='px-5' ref={form}  onSubmit={handleSubmit}>
